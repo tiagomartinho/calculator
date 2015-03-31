@@ -14,8 +14,7 @@ class CalculatorBrain{
     
     private var knownOps = [String:Op]()
     
-    init()
-    {
+    init(){
         knownOps = CalculatorOperations().learnOperations()
     }
     
@@ -30,35 +29,34 @@ class CalculatorBrain{
     }
     
     func evaluate()->Double?{
-        if(opStack.isEmpty){
-            return nil
-        }
         
         filterOpStack()
         
-        var expression=""
-        while(!opStack.isEmpty){
-            let op = opStack.removeAtIndex(0)
-            expression+=op.description
-        }
-        
-        var expn:NSExpression?
-        
-        TryCatch.try { () -> Void in
-            expn = NSExpression(format:expression)
-        };
+        let expression=opStackToString()
         
         clearOpStack()
         
         var result:Double?
-        if(expn != nil){
-            result=Double(expn!.expressionValueWithObject(nil, context: nil) as NSNumber)
-        }
+        
+        TryCatch.try { () -> Void in
+            var expn = NSExpression(format:expression)
+            result=Double(expn.expressionValueWithObject(nil, context: nil) as NSNumber)
+        };
+        
         return result
     }
     
     func clearOpStack(){
         opStack = [Op]()
+    }
+    
+    func opStackToString()->String{
+        var expression=""
+        while(!opStack.isEmpty){
+            let op = opStack.removeAtIndex(0)
+            expression+=op.description
+        }
+        return expression
     }
     
     func filterOpStack(){
