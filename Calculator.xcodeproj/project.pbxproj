@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA5D8E931ACB2A87004DA4C9 /* TryCatch.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5D8E921ACB2A87004DA4C9 /* TryCatch.m */; };
+		EA5D8E941ACB3081004DA4C9 /* TryCatch.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5D8E921ACB2A87004DA4C9 /* TryCatch.m */; };
 		EAAC345B1AC5DE0C00374FAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAC345A1AC5DE0C00374FAB /* AppDelegate.swift */; };
 		EAAC345D1AC5DE0C00374FAB /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAC345C1AC5DE0C00374FAB /* CalculatorViewController.swift */; };
 		EAAC34601AC5DE0C00374FAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAAC345E1AC5DE0C00374FAB /* Main.storyboard */; };
@@ -33,6 +35,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EA5D8E8F1ACB29D5004DA4C9 /* TryCatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TryCatch.h; sourceTree = "<group>"; };
+		EA5D8E911ACB2A87004DA4C9 /* Calculator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Calculator-Bridging-Header.h"; sourceTree = "<group>"; };
+		EA5D8E921ACB2A87004DA4C9 /* TryCatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TryCatch.m; sourceTree = "<group>"; };
 		EAAC34551AC5DE0C00374FAB /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAAC34591AC5DE0C00374FAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAAC345A1AC5DE0C00374FAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,13 +93,16 @@
 		EAAC34571AC5DE0C00374FAB /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				EAAC34581AC5DE0C00374FAB /* Supporting Files */,
 				EAAC345E1AC5DE0C00374FAB /* Main.storyboard */,
 				EAAC345A1AC5DE0C00374FAB /* AppDelegate.swift */,
 				EAAC345C1AC5DE0C00374FAB /* CalculatorViewController.swift */,
-				EAAC34581AC5DE0C00374FAB /* Supporting Files */,
 				EAAC347A1AC5DE8D00374FAB /* CalculatorBrain.swift */,
 				EAAC347C1AC5DEAA00374FAB /* CalculatorOp.swift */,
 				EAAC347E1AC5DEC500374FAB /* CalculatorOperations.swift */,
+				EA5D8E8F1ACB29D5004DA4C9 /* TryCatch.h */,
+				EA5D8E921ACB2A87004DA4C9 /* TryCatch.m */,
+				EA5D8E911ACB2A87004DA4C9 /* Calculator-Bridging-Header.h */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -232,6 +240,7 @@
 				EAAC347F1AC5DEC500374FAB /* CalculatorOperations.swift in Sources */,
 				EAAC347D1AC5DEAA00374FAB /* CalculatorOp.swift in Sources */,
 				EAAC345B1AC5DE0C00374FAB /* AppDelegate.swift in Sources */,
+				EA5D8E931ACB2A87004DA4C9 /* TryCatch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +253,7 @@
 				EAAC34841AC5E0AC00374FAB /* CalculatorOperations.swift in Sources */,
 				EAAC34831AC5E0A900374FAB /* CalculatorOp.swift in Sources */,
 				EAAC34711AC5DE0C00374FAB /* CalculatorTests.swift in Sources */,
+				EA5D8E941ACB3081004DA4C9 /* TryCatch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +325,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Calculator/Calculator-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -351,6 +362,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Calculator/Calculator-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -360,9 +372,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Calculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Calculator/Calculator-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -370,9 +385,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Calculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Calculator/Calculator-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -391,6 +408,7 @@
 				INFOPLIST_FILE = CalculatorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Calculator/Calculator-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Calculator.app/Calculator";
 			};
 			name = Debug;
@@ -406,6 +424,7 @@
 				INFOPLIST_FILE = CalculatorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Calculator/Calculator-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Calculator.app/Calculator";
 			};
 			name = Release;
@@ -429,6 +448,7 @@
 				EAAC34761AC5DE0C00374FAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EAAC34771AC5DE0C00374FAB /* Build configuration list for PBXNativeTarget "CalculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -437,6 +457,7 @@
 				EAAC34791AC5DE0C00374FAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

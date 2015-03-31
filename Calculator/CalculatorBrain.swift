@@ -30,6 +30,9 @@ class CalculatorBrain{
     }
     
     func evaluate()->Double?{
+        if(opStack.isEmpty){
+            return nil
+        }
         
         filterOpStack()
         
@@ -39,14 +42,18 @@ class CalculatorBrain{
             expression+=op.description
         }
         
-        let expn = NSExpression(format:expression)
+        var expn:NSExpression?
+        
+        TryCatch.try { () -> Void in
+            expn = NSExpression(format:expression)
+        };
         
         clearOpStack()
         
         var result:Double?
-        
-        result=Double(expn.expressionValueWithObject(nil, context: nil) as NSNumber)
-        
+        if(expn != nil){
+            result=Double(expn!.expressionValueWithObject(nil, context: nil) as NSNumber)
+        }
         return result
     }
     
