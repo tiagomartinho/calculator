@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		EA5D8E931ACB2A87004DA4C9 /* TryCatch.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5D8E921ACB2A87004DA4C9 /* TryCatch.m */; };
 		EA5D8E941ACB3081004DA4C9 /* TryCatch.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5D8E921ACB2A87004DA4C9 /* TryCatch.m */; };
+		EA5D8E961ACB34D4004DA4C9 /* CalculatorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5D8E951ACB34D4004DA4C9 /* CalculatorConstants.swift */; };
 		EAAC345B1AC5DE0C00374FAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAC345A1AC5DE0C00374FAB /* AppDelegate.swift */; };
 		EAAC345D1AC5DE0C00374FAB /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAC345C1AC5DE0C00374FAB /* CalculatorViewController.swift */; };
 		EAAC34601AC5DE0C00374FAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAAC345E1AC5DE0C00374FAB /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 		EA5D8E8F1ACB29D5004DA4C9 /* TryCatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TryCatch.h; sourceTree = "<group>"; };
 		EA5D8E911ACB2A87004DA4C9 /* Calculator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Calculator-Bridging-Header.h"; sourceTree = "<group>"; };
 		EA5D8E921ACB2A87004DA4C9 /* TryCatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TryCatch.m; sourceTree = "<group>"; };
+		EA5D8E951ACB34D4004DA4C9 /* CalculatorConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorConstants.swift; sourceTree = "<group>"; };
 		EAAC34551AC5DE0C00374FAB /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAAC34591AC5DE0C00374FAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAAC345A1AC5DE0C00374FAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				EAAC34701AC5DE0C00374FAB /* CalculatorTests.swift */,
+				EA5D8E951ACB34D4004DA4C9 /* CalculatorConstants.swift */,
 				EAAC34801AC5DF4B00374FAB /* CalculatorErrors.swift */,
 				EAAC346E1AC5DE0C00374FAB /* Supporting Files */,
 			);
@@ -252,6 +255,7 @@
 				EAAC34811AC5DF4B00374FAB /* CalculatorErrors.swift in Sources */,
 				EAAC34841AC5E0AC00374FAB /* CalculatorOperations.swift in Sources */,
 				EAAC34831AC5E0A900374FAB /* CalculatorOp.swift in Sources */,
+				EA5D8E961ACB34D4004DA4C9 /* CalculatorConstants.swift in Sources */,
 				EAAC34711AC5DE0C00374FAB /* CalculatorTests.swift in Sources */,
 				EA5D8E941ACB3081004DA4C9 /* TryCatch.m in Sources */,
 			);

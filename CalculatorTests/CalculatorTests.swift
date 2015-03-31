@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 Tiago Martinho. All rights reserved.
 //
 
-import UIKit
 import XCTest
 
 class CalculatorTests: XCTestCase {
@@ -18,39 +17,13 @@ class CalculatorTests: XCTestCase {
         calculatorBrain = CalculatorBrain()
     }
     
-    override func tearDown() {
-        super.tearDown()
-    }
-    
     func testOneOperand(){
         calculatorBrain!.pushOperand(5)
         XCTAssertEqual(5.0, calculatorBrain!.evaluate()!)
         calculatorBrain!.pushOperand(3)
         XCTAssertEqual(3.0, calculatorBrain!.evaluate()!)
     }
-    
-    func testOneConstant(){
-        calculatorBrain!.pushOperation("π")
-        XCTAssertEqualWithAccuracy(M_PI, calculatorBrain!.evaluate()!, 0.001)
-        calculatorBrain!.pushOperation("e")
-        XCTAssertEqualWithAccuracy(M_E, calculatorBrain!.evaluate()!, 0.001)
-    }
-    
-    func testTwoConstant(){
-        calculatorBrain!.pushOperation("e")
-        calculatorBrain!.pushOperation("π")
-        XCTAssertEqualWithAccuracy(M_E*M_PI, calculatorBrain!.evaluate()!, 0.001)
-    }
-    
-    func testOneConstantWithOneOperand(){
-        calculatorBrain!.pushOperand(3)
-        calculatorBrain!.pushOperation("π")
-        XCTAssertEqualWithAccuracy(3*M_PI, calculatorBrain!.evaluate()!, 0.001)
-        calculatorBrain!.pushOperation("e")
-        calculatorBrain!.pushOperand(5)
-        XCTAssertEqualWithAccuracy(M_E*5, calculatorBrain!.evaluate()!, 0.001)
-    }
-    
+
     func testOneOperandWithUnaryOperation(){
         calculatorBrain!.pushOperand(2)
         calculatorBrain!.pushOperation("^2")
@@ -88,5 +61,50 @@ class CalculatorTests: XCTestCase {
         calculatorBrain!.pushOperation("+")
         calculatorBrain!.pushOperand(4)
         XCTAssertEqual(6.0, calculatorBrain!.evaluate()!)
+    }
+    
+    func testPreUnaryFollowByBinaryOperation(){
+        calculatorBrain!.pushOperation("√")
+        calculatorBrain!.pushOperand(4)
+        calculatorBrain!.pushOperation("+")
+        calculatorBrain!.pushOperand(4)
+        XCTAssertEqual(6.0, calculatorBrain!.evaluate()!)
+    }
+    
+    func testBinaryOperationFollowByPreUnary(){
+        calculatorBrain!.pushOperand(1)
+        calculatorBrain!.pushOperation("+")
+        calculatorBrain!.pushOperation("√")
+        calculatorBrain!.pushOperand(4)
+        XCTAssertEqual(3.0, calculatorBrain!.evaluate()!)
+    }
+    
+    func testPosUnaryFollowByBinaryOperation(){
+        calculatorBrain!.pushOperand(1)
+        calculatorBrain!.pushOperation("^2")
+        calculatorBrain!.pushOperation("+")
+        calculatorBrain!.pushOperand(4)
+        XCTAssertEqual(5.0, calculatorBrain!.evaluate()!)
+    }
+    
+    func testBinaryOperationFollowByPosUnary(){
+        calculatorBrain!.pushOperand(1)
+        calculatorBrain!.pushOperation("+")
+        calculatorBrain!.pushOperand(4)
+        calculatorBrain!.pushOperation("^2")
+        XCTAssertEqual(17.0, calculatorBrain!.evaluate()!)
+    }
+    
+    func testMultipleOperations(){
+        calculatorBrain!.pushOperand(1)
+        calculatorBrain!.pushOperation("+")
+        calculatorBrain!.pushOperand(2)
+        calculatorBrain!.pushOperation("*")
+        calculatorBrain!.pushOperand(4)
+        calculatorBrain!.pushOperation("/")
+        calculatorBrain!.pushOperand(8)
+        calculatorBrain!.pushOperation("+")
+        calculatorBrain!.pushOperand(5)
+        XCTAssertEqual(7.0, calculatorBrain!.evaluate()!)
     }
 }
