@@ -25,9 +25,15 @@ class CalculatorViewController: UIViewController {
     }
     
     @IBAction func appendFloatingPoint() {
-        if display.text!.rangeOfString(".")==nil{
-            display.text=display.text!+"."
+        if !userInMiddleOfTypingNumber {
+            display.text = "0."
             userInMiddleOfTypingNumber=true
+        }
+        else {
+            if display.text!.rangeOfString(".")==nil{
+                display.text=display.text!+"."
+                userInMiddleOfTypingNumber=true
+            }
         }
     }
     

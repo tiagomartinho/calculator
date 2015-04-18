@@ -74,6 +74,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EA4A7E491AE28E7A0039A4F4 /* Objective-C */ = {
+			isa = PBXGroup;
+			children = (
+				EA5D8E8F1ACB29D5004DA4C9 /* TryCatch.h */,
+				EA5D8E921ACB2A87004DA4C9 /* TryCatch.m */,
+				EA5D8E911ACB2A87004DA4C9 /* Calculator-Bridging-Header.h */,
+			);
+			name = "Objective-C";
+			sourceTree = "<group>";
+		};
 		EAAC344C1AC5DE0C00374FAB = {
 			isa = PBXGroup;
 			children = (
@@ -95,16 +105,13 @@
 		EAAC34571AC5DE0C00374FAB /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				EAAC34581AC5DE0C00374FAB /* Supporting Files */,
 				EAAC345E1AC5DE0C00374FAB /* Main.storyboard */,
-				EAAC345A1AC5DE0C00374FAB /* AppDelegate.swift */,
 				EAAC345C1AC5DE0C00374FAB /* CalculatorViewController.swift */,
 				EAAC347A1AC5DE8D00374FAB /* CalculatorBrain.swift */,
 				EAAC347C1AC5DEAA00374FAB /* CalculatorOp.swift */,
 				EAAC347E1AC5DEC500374FAB /* CalculatorOperations.swift */,
-				EA5D8E8F1ACB29D5004DA4C9 /* TryCatch.h */,
-				EA5D8E921ACB2A87004DA4C9 /* TryCatch.m */,
-				EA5D8E911ACB2A87004DA4C9 /* Calculator-Bridging-Header.h */,
+				EA4A7E491AE28E7A0039A4F4 /* Objective-C */,
+				EAAC34581AC5DE0C00374FAB /* Supporting Files */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -112,6 +119,7 @@
 		EAAC34581AC5DE0C00374FAB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EAAC345A1AC5DE0C00374FAB /* AppDelegate.swift */,
 				EAAC34611AC5DE0C00374FAB /* Images.xcassets */,
 				EAAC34631AC5DE0C00374FAB /* LaunchScreen.xib */,
 				EAAC34591AC5DE0C00374FAB /* Info.plist */,
