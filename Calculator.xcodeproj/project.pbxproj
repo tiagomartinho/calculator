@@ -84,6 +84,16 @@
 			name = "Objective-C";
 			sourceTree = "<group>";
 		};
+		EA4A7E4A1AE290D80039A4F4 /* CalculatorModel */ = {
+			isa = PBXGroup;
+			children = (
+				EAAC347A1AC5DE8D00374FAB /* CalculatorBrain.swift */,
+				EAAC347C1AC5DEAA00374FAB /* CalculatorOp.swift */,
+				EAAC347E1AC5DEC500374FAB /* CalculatorOperations.swift */,
+			);
+			name = CalculatorModel;
+			sourceTree = "<group>";
+		};
 		EAAC344C1AC5DE0C00374FAB = {
 			isa = PBXGroup;
 			children = (
@@ -107,9 +117,7 @@
 			children = (
 				EAAC345E1AC5DE0C00374FAB /* Main.storyboard */,
 				EAAC345C1AC5DE0C00374FAB /* CalculatorViewController.swift */,
-				EAAC347A1AC5DE8D00374FAB /* CalculatorBrain.swift */,
-				EAAC347C1AC5DEAA00374FAB /* CalculatorOp.swift */,
-				EAAC347E1AC5DEC500374FAB /* CalculatorOperations.swift */,
+				EA4A7E4A1AE290D80039A4F4 /* CalculatorModel */,
 				EA4A7E491AE28E7A0039A4F4 /* Objective-C */,
 				EAAC34581AC5DE0C00374FAB /* Supporting Files */,
 			);

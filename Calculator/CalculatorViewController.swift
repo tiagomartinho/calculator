@@ -14,6 +14,7 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var display: UILabel!
     
     var userInMiddleOfTypingNumber:Bool = false
+    var clearHistory:Bool = false
     
     var brain = CalculatorBrain()
     
@@ -21,6 +22,15 @@ class CalculatorViewController: UIViewController {
         if let digit = sender.currentTitle{
             display.text = (userInMiddleOfTypingNumber ? display.text!+digit : digit)
             userInMiddleOfTypingNumber=true
+            
+            if clearHistory {
+                history.text = digit
+                clearHistory=false
+            }
+            else {
+                history.text = history.text! + digit
+            }
+            
         }
     }
     
@@ -28,11 +38,27 @@ class CalculatorViewController: UIViewController {
         if !userInMiddleOfTypingNumber {
             display.text = "0."
             userInMiddleOfTypingNumber=true
+            
+            if clearHistory {
+                history.text = "."
+                clearHistory=false
+            }
+            else {
+                history.text = history.text! + "."
+            }
         }
         else {
             if display.text!.rangeOfString(".")==nil{
                 display.text=display.text!+"."
                 userInMiddleOfTypingNumber=true
+                
+                if clearHistory {
+                    history.text = "."
+                    clearHistory=false
+                }
+                else {
+                    history.text = history.text! + "."
+                }
             }
         }
     }
@@ -53,6 +79,7 @@ class CalculatorViewController: UIViewController {
     
     @IBAction func clear(sender: UIButton) {
         displayValue=0
+        history.text = ""
         brain.clearOpStack()
     }
     
@@ -62,7 +89,10 @@ class CalculatorViewController: UIViewController {
             brain.pushOperand(displayValue)
         }
         if let result=brain.evaluate(){
-            displayValue=result}
+            displayValue=result
+            history.text = history.text! + "="
+            clearHistory = true
+        }
         else{
             displayValue=0.0
         }
@@ -73,13 +103,28 @@ class CalculatorViewController: UIViewController {
             brain.pushOperand(displayValue)
             brain.pushOperation(operation)
             displayValue=0
+            
+            if clearHistory {
+                history.text = operation
+                clearHistory=false
+            }
+            else {
+                history.text = history.text! + operation
+            }
         }
     }
     
     @IBAction func preOperation(sender: UIButton) {
         if let operation=sender.currentTitle{
             brain.pushOperation(operation)
-        }
+            
+            if clearHistory {
+                history.text = operation
+                clearHistory=false
+            }
+            else {
+                history.text = history.text! + operation
+            }        }
     }
     
     var displayValue:Double{
