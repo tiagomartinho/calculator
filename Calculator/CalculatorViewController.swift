@@ -33,7 +33,7 @@ class CalculatorViewController: UIViewController {
     
     @IBAction func undoDigit() {
         if var displayString = display.text{
-            if(countElements(displayString)==1)
+            if(count(displayString)==1)
             {
                 displayString="0"
                 userInMiddleOfTypingNumber=false
@@ -62,11 +62,17 @@ class CalculatorViewController: UIViewController {
         }
     }
     
-    @IBAction func operate(sender: UIButton) {
+    @IBAction func posOperation(sender: UIButton) {
         if let operation=sender.currentTitle{
             brain.pushOperand(displayValue)
             brain.pushOperation(operation)
             displayValue=0
+        }
+    }
+    
+    @IBAction func preOperation(sender: UIButton) {
+        if let operation=sender.currentTitle{
+            brain.pushOperation(operation)
         }
     }
     

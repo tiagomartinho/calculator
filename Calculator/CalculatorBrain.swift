@@ -40,7 +40,7 @@ class CalculatorBrain{
         
         TryCatch.try { () -> Void in
             var expn = NSExpression(format:expression)
-            result=Double(expn.expressionValueWithObject(nil, context: nil) as NSNumber)
+            result=Double(expn.expressionValueWithObject(nil, context: nil) as! NSNumber)
         };
         
         return result
