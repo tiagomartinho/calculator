@@ -94,7 +94,9 @@ class CalculatorViewController: UIViewController {
             clearHistory = true
         }
         else{
-            displayValue=0.0
+            display.text = "Error"
+            brain.clearOpStack()
+            clearHistory = true
         }
     }
     
