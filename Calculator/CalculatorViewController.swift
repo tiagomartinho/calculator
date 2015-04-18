@@ -60,11 +60,11 @@ class CalculatorViewController: UIViewController {
         if(userInMiddleOfTypingNumber){
             userInMiddleOfTypingNumber=false
             brain.pushOperand(displayValue)
-            if let result=brain.evaluate(){
-                displayValue=result}
-            else{
-                displayValue=0.0
-            }
+        }
+        if let result=brain.evaluate(){
+            displayValue=result}
+        else{
+            displayValue=0.0
         }
     }
     
