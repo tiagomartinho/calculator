@@ -24,11 +24,11 @@ class CalculatorViewController: UIViewController {
             userInMiddleOfTypingNumber=true
             
             if clearHistory {
-                history.text = digit
+                historyValue = digit
                 clearHistory=false
             }
             else {
-                history.text = history.text! + digit
+                historyValue += digit
             }
             
         }
@@ -40,11 +40,11 @@ class CalculatorViewController: UIViewController {
             userInMiddleOfTypingNumber=true
             
             if clearHistory {
-                history.text = "."
+                historyValue = "."
                 clearHistory=false
             }
             else {
-                history.text = history.text! + "."
+                historyValue += "."
             }
         }
         else {
@@ -53,11 +53,11 @@ class CalculatorViewController: UIViewController {
                 userInMiddleOfTypingNumber=true
                 
                 if clearHistory {
-                    history.text = "."
+                    historyValue = "."
                     clearHistory=false
                 }
                 else {
-                    history.text = history.text! + "."
+                    historyValue += "."
                 }
             }
         }
@@ -79,7 +79,7 @@ class CalculatorViewController: UIViewController {
     
     @IBAction func clear(sender: UIButton) {
         displayValue=0
-        history.text = ""
+        historyValue = ""
         brain.clearOpStack()
     }
     
@@ -90,7 +90,7 @@ class CalculatorViewController: UIViewController {
         }
         if let result=brain.evaluate(){
             displayValue=result
-            history.text = history.text! + "="
+            historyValue += "="
             clearHistory = true
         }
         else{
@@ -107,11 +107,11 @@ class CalculatorViewController: UIViewController {
             displayValue=0
             
             if clearHistory {
-                history.text = operation
+                historyValue = operation
                 clearHistory=false
             }
             else {
-                history.text = history.text! + operation
+                historyValue += operation
             }
         }
     }
@@ -121,12 +121,13 @@ class CalculatorViewController: UIViewController {
             brain.pushOperation(operation)
             
             if clearHistory {
-                history.text = operation
+                historyValue = operation
                 clearHistory=false
             }
             else {
-                history.text = history.text! + operation
-            }        }
+                historyValue += operation
+            }
+        }
     }
     
     var displayValue:Double{
@@ -136,6 +137,21 @@ class CalculatorViewController: UIViewController {
         set{
             display.text="\(newValue)"
             userInMiddleOfTypingNumber=false
+        }
+    }
+    
+    var historyValue:String{
+        get{
+            if let text = history.text {
+                return text
+            }
+            else{
+                return ""
+            }
+        }
+        set{
+            history.text=newValue
+            history.accessibilityValue=newValue
         }
     }
 }
