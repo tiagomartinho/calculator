@@ -80,3 +80,25 @@ Scenario: Clear button clears interface
   Then I touch "C"
   Then I see the text "0.0"
   Then I don't read "1+2="
+
+Scenario: Backspace button clears number inserted
+  When I touch the "1" button
+  And I touch the "2" button
+  And I touch the "3" button
+  Then I see the text "123"
+  Then I touch the "Backspace" button
+  Then I see the text "12"
+  Then I touch the "Backspace" button
+  Then I touch the "Backspace" button
+  Then I see the text "0.0"
+  Then I don't read "12"
+  Then I don't read "123"
+
+Scenario: Invert sign operation
+  When I touch the "5" button
+  And I touch the "Invert sign" button
+  When I touch the "/" button
+  When I touch the "2" button
+  And I touch the "Enter" button
+  Then I see the text "-2.5"
+  Then I read "5+/-/2="

@@ -64,16 +64,19 @@ class CalculatorViewController: UIViewController {
     }
     
     @IBAction func undoDigit() {
-        if var displayString = display.text{
+        if var displayString = display.text, var historyString = history.text{
             if(count(displayString)==1)
             {
-                displayString="0"
+                displayString="0.0"
+                historyString=""
                 userInMiddleOfTypingNumber=false
             }
             else{
                 displayString=dropLast(displayString)
+                historyString=dropLast(historyString)
             }
             display.text=displayString
+            history.text=historyString
         }
     }
     
