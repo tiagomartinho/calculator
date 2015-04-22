@@ -69,3 +69,14 @@ Scenario: Calculation of PI inverted
   And I touch the "Enter" button
   Then I read "9.424777960"
   Then I read "3π="
+
+Scenario: Clear button clears interface 
+  When I touch the "1" button
+  And I touch the "+" button
+  And I touch the "2" button
+  And I touch the "Enter" button
+  Then I see the text "3.0"
+  Then I read "1+2="
+  Then I touch "C"
+  Then I see the text "0.0"
+  Then I don't read "1+2="
