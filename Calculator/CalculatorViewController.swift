@@ -89,7 +89,9 @@ class CalculatorViewController: UIViewController {
     @IBAction func enter() {
         if(userInMiddleOfTypingNumber){
             userInMiddleOfTypingNumber=false
-            brain.pushOperand(displayValue)
+            if let value = displayValue {
+                brain.pushOperand(value)
+            }
         }
         if let result=brain.evaluate(){
             displayValue=result
@@ -105,7 +107,9 @@ class CalculatorViewController: UIViewController {
     
     @IBAction func posOperation(sender: UIButton) {
         if let operation=sender.currentTitle{
-            brain.pushOperand(displayValue)
+            if let value = displayValue {
+                brain.pushOperand(value)
+            }
             brain.pushOperation(operation)
             displayValue=0
             
@@ -133,12 +137,17 @@ class CalculatorViewController: UIViewController {
         }
     }
     
-    var displayValue:Double{
+    var displayValue:Double?{
         get{
-            return display.text!.doubleValue
+            return display.text?.doubleValue
         }
         set{
-            display.text="\(newValue)"
+            if newValue == nil {
+                display.text=""
+            }
+            else{
+                display.text="\(newValue!)"
+            }
             userInMiddleOfTypingNumber=false
         }
     }
@@ -160,10 +169,10 @@ class CalculatorViewController: UIViewController {
 }
 
 extension String {
-    var doubleValue: Double {
+    var doubleValue: Double? {
         var formatter = NSNumberFormatter()
         formatter.locale = NSLocale(localeIdentifier: "en_US")
-        return formatter.numberFromString(self)!.doubleValue
+        return formatter.numberFromString(self)?.doubleValue
     }
 }
 

@@ -94,7 +94,7 @@ Scenario: Backspace button clears number inserted
   Then I don't read "12"
   Then I don't read "123"
 
-Scenario: Invert sign operation
+Scenario: Invert sign operation on first operand
   When I touch the "5" button
   And I touch the "Invert sign" button
   When I touch the "/" button
@@ -102,3 +102,12 @@ Scenario: Invert sign operation
   And I touch the "Enter" button
   Then I see the text "-2.5"
   Then I read "5+/-/2="
+
+Scenario: Invert sign operation on second operand
+  When I touch the "5" button
+  When I touch the "-" button
+  When I touch the "2" button
+  And I touch the "Invert sign" button
+  And I touch the "Enter" button
+  Then I see the text "7.0"
+  Then I read "5-2+/-="
