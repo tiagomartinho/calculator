@@ -86,4 +86,12 @@ class CalculatorOperationTests: XCTestCase {
         calculatorBrain?.pushOperand(1)
         calculatorBrain?.assertItEvaluatesTo(1.0)
     }
+    
+    func testInvertSignOperation(){
+        calculatorBrain?.pushOperand(5)
+        calculatorBrain?.pushOperation("/")
+        calculatorBrain?.pushOperation("+/-")
+        calculatorBrain?.pushOperand(2)
+        calculatorBrain?.assertItEvaluatesTo(-2.5)
+    }
 }
