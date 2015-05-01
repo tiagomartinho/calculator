@@ -38,6 +38,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="addToHistory:" destination="Los-gM-968" eventType="touchUpInside" id="90E-l9-xvM"/>
                                     <action selector="appendDigit:" destination="Los-gM-968" eventType="touchUpInside" id="KUS-O7-qDa"/>
                                 </connections>
                             </button>
@@ -50,6 +51,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="addToHistory:" destination="Los-gM-968" eventType="touchUpInside" id="mEw-rG-bxY"/>
                                     <action selector="appendDigit:" destination="Los-gM-968" eventType="touchUpInside" id="gaf-Br-FXB"/>
                                 </connections>
                             </button>
@@ -62,6 +64,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="addToHistory:" destination="Los-gM-968" eventType="touchUpInside" id="qml-ee-r3x"/>
                                     <action selector="appendDigit:" destination="Los-gM-968" eventType="touchUpInside" id="kQv-3i-z5I"/>
                                 </connections>
                             </button>
@@ -74,6 +77,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="addToHistory:" destination="Los-gM-968" eventType="touchUpInside" id="4OB-x4-vkp"/>
                                     <action selector="appendDigit:" destination="Los-gM-968" eventType="touchUpInside" id="GsK-Lf-C4U"/>
                                 </connections>
                             </button>
@@ -86,6 +90,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="addToHistory:" destination="Los-gM-968" eventType="touchUpInside" id="EDz-LS-xgO"/>
                                     <action selector="appendDigit:" destination="Los-gM-968" eventType="touchUpInside" id="CpC-Sn-9Jh"/>
                                 </connections>
                             </button>
@@ -98,6 +103,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="addToHistory:" destination="Los-gM-968" eventType="touchUpInside" id="0VQ-QT-qIx"/>
                                     <action selector="appendDigit:" destination="Los-gM-968" eventType="touchUpInside" id="x9a-QB-DUw"/>
                                 </connections>
                             </button>
@@ -110,6 +116,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="addToHistory:" destination="Los-gM-968" eventType="touchUpInside" id="Rm2-Gm-B0b"/>
                                     <action selector="appendDigit:" destination="Los-gM-968" eventType="touchUpInside" id="teO-Rx-JVJ"/>
                                 </connections>
                             </button>
@@ -122,6 +129,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="addToHistory:" destination="Los-gM-968" eventType="touchUpInside" id="RYb-ek-huf"/>
                                     <action selector="appendDigit:" destination="Los-gM-968" eventType="touchUpInside" id="sS5-rO-MG1"/>
                                 </connections>
                             </button>
@@ -134,6 +142,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="addToHistory:" destination="Los-gM-968" eventType="touchUpInside" id="gBP-RG-6dP"/>
                                     <action selector="appendDigit:" destination="Los-gM-968" eventType="touchUpInside" id="b6u-XF-blV"/>
                                 </connections>
                             </button>
@@ -146,6 +155,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="addToHistory:" destination="Los-gM-968" eventType="touchUpInside" id="ZWi-Zf-aOR"/>
                                     <action selector="appendDigit:" destination="Los-gM-968" eventType="touchUpInside" id="ltv-EI-0Sp"/>
                                 </connections>
                             </button>
@@ -180,6 +190,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="addToHistory:" destination="Los-gM-968" eventType="touchUpInside" id="Zo5-5p-wBn"/>
                                     <action selector="posOperation:" destination="Los-gM-968" eventType="touchUpInside" id="fGl-f2-t43"/>
                                 </connections>
                             </button>
@@ -191,6 +202,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="addToHistory:" destination="Los-gM-968" eventType="touchUpInside" id="Lie-zh-miV"/>
                                     <action selector="posOperation:" destination="Los-gM-968" eventType="touchUpInside" id="CIA-LX-sTc"/>
                                 </connections>
                             </button>
@@ -202,6 +214,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="addToHistory:" destination="Los-gM-968" eventType="touchUpInside" id="neh-nf-Fmu"/>
                                     <action selector="posOperation:" destination="Los-gM-968" eventType="touchUpInside" id="fTU-8e-hAk"/>
                                 </connections>
                             </button>
@@ -213,6 +226,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="addToHistory:" destination="Los-gM-968" eventType="touchUpInside" id="znb-sg-S30"/>
                                     <action selector="posOperation:" destination="Los-gM-968" eventType="touchUpInside" id="QxD-oS-qH2"/>
                                 </connections>
                             </button>
@@ -223,6 +237,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="addToHistory:" destination="Los-gM-968" eventType="touchUpInside" id="1rX-vg-LCV"/>
                                     <action selector="posOperation:" destination="Los-gM-968" eventType="touchUpInside" id="idi-lQ-uio"/>
                                 </connections>
                             </button>
@@ -233,6 +248,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="addToHistory:" destination="Los-gM-968" eventType="touchUpInside" id="RRC-tX-l6Y"/>
                                     <action selector="preOperation:" destination="Los-gM-968" eventType="touchUpInside" id="ZPO-Vx-xUC"/>
                                 </connections>
                             </button>
@@ -255,6 +271,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="addToHistory:" destination="Los-gM-968" eventType="touchUpInside" id="D7M-cv-eDz"/>
                                     <action selector="preOperation:" destination="Los-gM-968" eventType="touchUpInside" id="Ady-2U-ttX"/>
                                 </connections>
                             </button>
@@ -265,6 +282,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="addToHistory:" destination="Los-gM-968" eventType="touchUpInside" id="cin-Dh-yTq"/>
                                     <action selector="preOperation:" destination="Los-gM-968" eventType="touchUpInside" id="1uS-kj-xfx"/>
                                 </connections>
                             </button>
@@ -275,6 +293,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="addToHistory:" destination="Los-gM-968" eventType="touchUpInside" id="wYN-v1-Wr3"/>
                                     <action selector="preOperation:" destination="Los-gM-968" eventType="touchUpInside" id="8jx-kL-Bow"/>
                                 </connections>
                             </button>
@@ -286,6 +305,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="addToHistory:" destination="Los-gM-968" eventType="touchUpInside" id="wCW-wE-IES"/>
                                     <action selector="preOperation:" destination="Los-gM-968" eventType="touchUpInside" id="BLL-F1-Sj0"/>
                                 </connections>
                             </button>

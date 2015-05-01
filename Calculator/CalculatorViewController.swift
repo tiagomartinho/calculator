@@ -21,16 +21,14 @@ class CalculatorViewController: UIViewController {
         if let digit = sender.currentTitle{
             display.text = (userInMiddleOfTypingNumber ? display.text!+digit : digit)
             userInMiddleOfTypingNumber=true
-            
-            historyValue = (historyValue ?? "") + digit
         }
     }
     
     @IBAction func appendFloatingPoint() {
         if display.text!.rangeOfString(".")==nil{
             display.text=display.text!+"."
-            historyValue = (historyValue ?? "") + "."
             userInMiddleOfTypingNumber=true
+            historyValue = (historyValue ?? "") + "."
         }
     }
     
@@ -81,16 +79,12 @@ class CalculatorViewController: UIViewController {
             }
             brain.pushOperation(operation)
             displayValue=0
-            
-            historyValue = (historyValue ?? "") + operation
         }
     }
     
     @IBAction func preOperation(sender: UIButton) {
         if let operation=sender.currentTitle{
             brain.pushOperation(operation)
-            
-            historyValue = (historyValue ?? "") + operation
         }
     }
     
@@ -111,6 +105,13 @@ class CalculatorViewController: UIViewController {
                 }
             }
             userInMiddleOfTypingNumber=false
+        }
+    }
+    
+    
+    @IBAction func addToHistory(sender: UIButton) {
+        if let op = sender.currentTitle{
+            historyValue = (historyValue ?? "") + op
         }
     }
     
