@@ -1,14 +1,6 @@
-//
-//  CalculatorTests.swift
-//  CalculatorTests
-//
-//  Created by Tiago Martinho on 27/03/15.
-//  Copyright (c) 2015 Tiago Martinho. All rights reserved.
-//
-
 import XCTest
 
-class CalculatorTests: XCTestCase {
+class CalculatorOperationTests: XCTestCase {
     
     var calculatorBrain:CalculatorBrain?
     

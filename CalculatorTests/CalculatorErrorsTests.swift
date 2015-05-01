@@ -1,15 +1,7 @@
-//
-//  CalculatorErrors.swift
-//  Calculator
-//
-//  Created by Tiago Martinho on 27/03/15.
-//  Copyright (c) 2015 Tiago Martinho. All rights reserved.
-//
-
 import UIKit
 import XCTest
 
-class CalculatorErrors: XCTestCase {
+class CalculatorErrorsTests: XCTestCase {
     
     var calculatorBrain:CalculatorBrain?
     
