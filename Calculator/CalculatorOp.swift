@@ -11,7 +11,7 @@ enum Op: Printable{
         get{
             switch self{
             case .Operand(let operand):
-                return String(format: "%.6g", operand)
+                return "\(operand)"
             case .Variable(let symbol,_):
                 return symbol
             case .UnaryPreOperation(let symbol,_):
