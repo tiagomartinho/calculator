@@ -27,6 +27,25 @@ Scenario: Testing all assignemnt 1 requirements
   Then I have "0.5"
 
   Then I click "C"
+#Scenario: Clear button clears interface 
+  When I click the "1" button
+  And I click the "+" button
+  And I click the "2" button
+  And I click the "Enter" button
+  Then I have "3.0"
+  Then I read "1+2="
+  Then I click "C"
+  Then I have "0"
+  Then I don't read "1+2="
+  When I click the "1" button
+  And I click the "." button
+  And I click the "2" button
+  Then I have "1.2"
+  Then I click "C"
+  Then I have "0"
+  Then I don't read "1.2"
+
+  Then I click "C"
 #Scenario: Multiplying two floating point number of type x.y and 0.x 
   When I click the "1" button
   And I click the "." button
@@ -78,17 +97,6 @@ Scenario: Testing all assignemnt 1 requirements
   Then I read "9.424777960"
   Then I read "3π="
 
-  Then I click "C"
-#Scenario: Clear button clears interface 
-  When I click the "1" button
-  And I click the "+" button
-  And I click the "2" button
-  And I click the "Enter" button
-  Then I have "3.0"
-  Then I read "1+2="
-  Then I click "C"
-  Then I have "0"
-  Then I don't read "1+2="
 
   Then I click "C"
 #Scenario: Backspace button clears number inserted
