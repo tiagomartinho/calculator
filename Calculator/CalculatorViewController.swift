@@ -22,20 +22,20 @@ class CalculatorViewController: UIViewController {
             display.text = (userInMiddleOfTypingNumber ? display.text!+digit : digit)
             userInMiddleOfTypingNumber=true
             
-            historyValue = digit
+            historyValue = (historyValue ?? "") + digit
         }
     }
     
     @IBAction func appendFloatingPoint() {
         if display.text!.rangeOfString(".")==nil{
             display.text=display.text!+"."
-            historyValue = "."
+            historyValue = (historyValue ?? "") + "."
             userInMiddleOfTypingNumber=true
         }
     }
     
     @IBAction func undoDigit() {
-        if var displayString = display.text, var historyString = history.text{
+        if var displayString = display.text, var historyString = historyValue{
             if(count(displayString)==1)
             {
                 displayValue=0
@@ -47,7 +47,7 @@ class CalculatorViewController: UIViewController {
                 historyString=dropLast(historyString)
             }
             display.text=displayString
-            history.text=historyString
+            historyValue=historyString
         }
     }
     
@@ -66,7 +66,7 @@ class CalculatorViewController: UIViewController {
         }
         if let result=brain.evaluate(){
             displayValue=result
-            historyValue = "="
+            historyValue = (historyValue ?? "") + "="
         }
         else{
             display.text = "Error"
@@ -82,8 +82,7 @@ class CalculatorViewController: UIViewController {
             brain.pushOperation(operation)
             displayValue=0
             
-            historyValue = operation
-
+            historyValue = (historyValue ?? "") + operation
         }
     }
     
@@ -91,7 +90,7 @@ class CalculatorViewController: UIViewController {
         if let operation=sender.currentTitle{
             brain.pushOperation(operation)
             
-            historyValue = operation
+            historyValue = (historyValue ?? "") + operation
         }
     }
     
@@ -108,32 +107,23 @@ class CalculatorViewController: UIViewController {
                     display.text="0"
                 }
                 else{
-                display.text="\(newValue!)"
+                    display.text="\(newValue!)"
                 }
             }
             userInMiddleOfTypingNumber=false
         }
     }
     
-    var historyValue:String{
+    var historyValue:String?{
         get{
-            if let text = history.text {
-                return text
-            }
-            else{
-                return ""
-            }
+            return history.text
         }
         set{
-            if history.text!.rangeOfString("=") != nil{
-                history.text = newValue
+            if history.text?.rangeOfString("=") != nil || newValue == "" || history.text==nil{
+                history.text = ""
             }
-            else if newValue == ""{
-                history.text = newValue
-            }
-            else {
-                history.text = history.text! + newValue
-            }
+            
+            history.text = (newValue ?? "")
         }
     }
 }
@@ -145,4 +135,3 @@ extension String {
         return formatter.numberFromString(self)?.doubleValue
     }
 }
-
