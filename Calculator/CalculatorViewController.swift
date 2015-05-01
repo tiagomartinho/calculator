@@ -61,6 +61,12 @@ class CalculatorViewController: UIViewController {
     @IBAction func enter() {
         pushOperand()
 
+        evaluateExpression()
+        
+        brain.clearOpStack()
+    }
+    
+    func evaluateExpression(){
         if let result=brain.evaluate(){
             displayValue=result
             addEqualSign()
@@ -68,8 +74,6 @@ class CalculatorViewController: UIViewController {
         else{
             display.text = "Error"
         }
-        
-        brain.clearOpStack()
     }
     
     func addEqualSign(){
