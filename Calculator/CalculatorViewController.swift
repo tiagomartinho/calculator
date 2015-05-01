@@ -33,25 +33,26 @@ class CalculatorViewController: UIViewController {
     }
     
     @IBAction func undoDigit() {
-        if var displayString = display.text, var historyString = historyValue{
+        if let displayString = display.text, let historyString = historyValue{
             if(count(displayString)==1)
             {
-                displayValue=0
-                historyString=""
-                userInMiddleOfTypingNumber=false
+                clearDisplayAndHistory()
             }
             else{
-                displayString=dropLast(displayString)
-                historyString=dropLast(historyString)
+                display.text=dropLast(displayString)
+                historyValue=dropLast(historyString)
             }
-            display.text=displayString
-            historyValue=historyString
         }
     }
     
-    @IBAction func clear(sender: UIButton) {
+    func clearDisplayAndHistory(){
         displayValue=0
+        userInMiddleOfTypingNumber=false
         historyValue = ""
+    }
+    
+    @IBAction func clear(sender: UIButton) {
+        clearDisplayAndHistory()
         brain.clearOpStack()
     }
     
