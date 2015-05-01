@@ -8,6 +8,8 @@ Scenario: Testing all assignemnt 1 requirements
   And I click the "Enter" button
   Then I have "3.0"
   Then I read "1+2="
+  And I click the "Enter" button
+  Then I don't read "1+2=="
 
   Then I click "C"
 #Scenario: Insert floating point number of type x.y 

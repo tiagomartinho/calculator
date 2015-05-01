@@ -131,7 +131,7 @@ class CalculatorViewController: UIViewController {
             return history.text
         }
         set{
-            if history.text?.rangeOfString("=") != nil || history.text==nil{
+            if history.text?.rangeOfString("=") != nil{
                 history.text = ""
             } else{
                 history.text = (newValue ?? "")
