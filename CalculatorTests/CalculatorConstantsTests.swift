@@ -19,11 +19,11 @@ class CalculatorConstantsTests: XCTestCase {
         XCTAssertEqualWithAccuracy(M_E, calculatorBrain!.evaluate()!, 0.001)
     }
     
-    func testOneConstantWithUnaryOperation(){
-        calculatorBrain!.pushOperation("π")
-        calculatorBrain!.pushOperation("^2")
-        XCTAssertEqualWithAccuracy(M_PI*M_PI, calculatorBrain!.evaluate()!, 0.001)
-    }
+//    func testOneConstantWithUnaryOperation(){
+//        calculatorBrain!.pushOperation("π")
+//        calculatorBrain!.pushOperation("^2")
+//        XCTAssertEqualWithAccuracy(M_PI*M_PI, calculatorBrain!.evaluate()!, 0.001)
+//    }
     
     func testTwoConstant(){
         calculatorBrain!.pushOperation("e")

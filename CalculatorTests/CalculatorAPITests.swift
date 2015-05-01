@@ -17,28 +17,19 @@ class CalculatorAPITests: XCTestCase {
     func testPushVariableAndAfterValue() {
         calculatorBrain?.pushOperand("x")
         calculatorBrain?.variableValues["x"] = 35.0
-        assertEvaluatesTo(35.0)
+        calculatorBrain?.assertItEvaluatesTo(35.0)
     }
     
     func testPushValueAndAfterVariable() {
         calculatorBrain?.variableValues["x"] = 35.0
         calculatorBrain?.pushOperand("x")
-        assertEvaluatesTo(35.0)
+        calculatorBrain?.assertItEvaluatesTo(35.0)
     }
     
-    func testOneVariableWithUnaryOperation(){
-        calculatorBrain?.variableValues["x"] = 35.0
-        calculatorBrain?.pushOperand("x")
-        calculatorBrain?.pushOperation("^2")
-        assertEvaluatesTo(1225.0)
-    }
-    
-    func assertEvaluatesTo(expectedResult:Double){
-        if let result = calculatorBrain?.evaluate() {
-            XCTAssertEqual(expectedResult, result)
-        }
-        else {
-            XCTAssertTrue(false)
-        }
-    }
+//    func testOneVariableWithUnaryOperation(){
+//        calculatorBrain?.variableValues["x"] = 35.0
+//        calculatorBrain?.pushOperand("x")
+//        calculatorBrain?.pushOperation("^2")
+//        calculatorBrain?.assertItEvaluatesTo(1225.0)
+//    }
 }
