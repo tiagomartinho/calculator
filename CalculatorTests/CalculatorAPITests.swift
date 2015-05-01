@@ -11,7 +11,7 @@ class CalculatorAPITests: XCTestCase {
 
     func testPushVariableWithoutValue() {
         calculatorBrain?.pushOperand("x")
-        XCTAssertNil(calculatorBrain!.evaluate())
+        XCTAssertNil(calculatorBrain?.evaluate())
     }
     
     func testPushVariableAndAfterValue() {
