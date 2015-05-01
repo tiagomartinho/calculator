@@ -13,52 +13,50 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var history: UILabel!
     @IBOutlet weak var display: UILabel!
     
-    var userInMiddleOfTypingNumber:Bool = false
-    
     var brain = CalculatorBrain()
+    
+    var userIsTypingNumber:Bool = false
+    
+    // MARK: Add Digits, Floating Points and Operations Methods
     
     @IBAction func appendDigit(sender: UIButton) {
         if let digit = sender.currentTitle{
-            display.text = (userInMiddleOfTypingNumber ? display.text!+digit : digit)
-            userInMiddleOfTypingNumber=true
+            display.text = (userIsTypingNumber ? display.text!+digit : digit)
+            userIsTypingNumber=true
         }
     }
     
     @IBAction func appendFloatingPoint() {
         if display.text!.rangeOfString(".")==nil{
             display.text=display.text!+"."
-            userInMiddleOfTypingNumber=true
+            userIsTypingNumber=true
             historyValue = (historyValue ?? "") + "."
         }
     }
     
-    @IBAction func undoDigit() {
-        if let displayString = display.text, let historyString = historyValue{
-            if(count(displayString)==1)
-            {
-                clearDisplayAndHistory()
-            }
-            else{
-                display.text=dropLast(displayString)
-                historyValue=dropLast(historyString)
-            }
+    @IBAction func posOperation(sender: UIButton) {
+        if let value = displayValue {
+            brain.pushOperand(value)
+            displayValue=0
+            pushOperation(sender)
         }
     }
     
-    func clearDisplayAndHistory(){
-        displayValue=0
-        userInMiddleOfTypingNumber=false
-        historyValue = ""
+    @IBAction func preOperation(sender: UIButton) {
+        pushOperation(sender)
     }
     
-    @IBAction func clear(sender: UIButton) {
-        clearDisplayAndHistory()
-        brain.clearOpStack()
+    func pushOperation(sender: UIButton){
+        if let operation=sender.currentTitle{
+            brain.pushOperation(operation)
+        }
     }
+    
+    // MARK: Enter Method
     
     @IBAction func enter() {
-        if(userInMiddleOfTypingNumber){
-            userInMiddleOfTypingNumber=false
+        if(userIsTypingNumber){
+            userIsTypingNumber=false
             if let value = displayValue {
                 brain.pushOperand(value)
             }
@@ -73,21 +71,33 @@ class CalculatorViewController: UIViewController {
         }
     }
     
-    @IBAction func posOperation(sender: UIButton) {
-        if let operation=sender.currentTitle{
-            if let value = displayValue {
-                brain.pushOperand(value)
+    // MARK: Clear Methods
+    
+    @IBAction func undoDigit() {
+        if let displayString = display.text, let historyString = historyValue{
+            if(count(displayString)==1)
+            {
+                clearDisplayAndHistory()
             }
-            brain.pushOperation(operation)
-            displayValue=0
+            else{
+                display.text=dropLast(displayString)
+                historyValue=dropLast(historyString)
+            }
         }
     }
     
-    @IBAction func preOperation(sender: UIButton) {
-        if let operation=sender.currentTitle{
-            brain.pushOperation(operation)
-        }
+    @IBAction func clear(sender: UIButton) {
+        clearDisplayAndHistory()
+        brain.clearOpStack()
     }
+    
+    func clearDisplayAndHistory(){
+        displayValue=0
+        userIsTypingNumber=false
+        historyValue = ""
+    }
+    
+    // MARK: Computed Properties
     
     var displayValue:Double?{
         get{
@@ -105,7 +115,7 @@ class CalculatorViewController: UIViewController {
                     display.text="\(newValue!)"
                 }
             }
-            userInMiddleOfTypingNumber=false
+            userIsTypingNumber=false
         }
     }
     
@@ -121,11 +131,14 @@ class CalculatorViewController: UIViewController {
             return history.text
         }
         set{
-            if history.text?.rangeOfString("=") != nil || newValue == "" || history.text==nil{
-                history.text = ""
-            }
-            
+            clearHistoryIfNeeded()
             history.text = (newValue ?? "")
+        }
+    }
+    
+    func clearHistoryIfNeeded(){
+        if history.text?.rangeOfString("=") != nil || history.text==nil{
+            history.text = ""
         }
     }
 }
