@@ -12,6 +12,9 @@ class CalculatorOperationTests: XCTestCase {
     func testOneOperand(){
         calculatorBrain!.pushOperand(5)
         XCTAssertEqual(5.0, calculatorBrain!.evaluate()!)
+
+        calculatorBrain!.clearOpStack()
+
         calculatorBrain!.pushOperand(3)
         XCTAssertEqual(3.0, calculatorBrain!.evaluate()!)
     }
@@ -20,6 +23,9 @@ class CalculatorOperationTests: XCTestCase {
         calculatorBrain!.pushOperand(2)
         calculatorBrain!.pushOperation("^2")
         XCTAssertEqual(4.0, calculatorBrain!.evaluate()!)
+        
+        calculatorBrain!.clearOpStack()
+
         calculatorBrain!.pushOperation("√")
         calculatorBrain!.pushOperand(4)
         XCTAssertEqual(2.0, calculatorBrain!.evaluate()!)
@@ -31,6 +37,8 @@ class CalculatorOperationTests: XCTestCase {
         calculatorBrain!.pushOperand(2)
         XCTAssertEqual(3.0, calculatorBrain!.evaluate()!)
         
+        calculatorBrain!.clearOpStack()
+
         calculatorBrain!.pushOperand(3)
         calculatorBrain!.pushOperation("*")
         calculatorBrain!.pushOperand(4)

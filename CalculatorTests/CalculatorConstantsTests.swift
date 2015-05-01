@@ -12,6 +12,9 @@ class CalculatorConstantsTests: XCTestCase {
     func testOneConstant(){
         calculatorBrain!.pushOperation("π")
         XCTAssertEqualWithAccuracy(M_PI, calculatorBrain!.evaluate()!, 0.001)
+        
+        calculatorBrain!.clearOpStack()
+        
         calculatorBrain!.pushOperation("e")
         XCTAssertEqualWithAccuracy(M_E, calculatorBrain!.evaluate()!, 0.001)
     }
@@ -26,6 +29,9 @@ class CalculatorConstantsTests: XCTestCase {
         calculatorBrain!.pushOperand(3)
         calculatorBrain!.pushOperation("π")
         XCTAssertEqualWithAccuracy(3*M_PI, calculatorBrain!.evaluate()!, 0.001)
+
+        calculatorBrain!.clearOpStack()
+
         calculatorBrain!.pushOperation("e")
         calculatorBrain!.pushOperand(5)
         XCTAssertEqualWithAccuracy(M_E*5, calculatorBrain!.evaluate()!, 0.001)

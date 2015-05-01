@@ -30,14 +30,10 @@ class CalculatorBrain{
     
     func evaluate()->Double?{
         
-        filterOpStack()
-        
-        let expression=opStackToString()
-        
-        clearOpStack()
-        
         var result:Double?
         
+        let expression=opStackToString
+
         TryCatch.try { () -> Void in
             var expn = NSExpression(format:expression)
             result=Double(expn.expressionValueWithObject(nil, context: nil) as! NSNumber)
@@ -50,19 +46,21 @@ class CalculatorBrain{
         opStack = [Op]()
     }
     
-    func opStackToString()->String{
+    private var opStackToString:String{
+        var auxOpStack = filteredOpStack
         var expression=""
-        while(!opStack.isEmpty){
-            let op = opStack.removeAtIndex(0)
+        while(!auxOpStack.isEmpty){
+            let op = auxOpStack.removeAtIndex(0)
             expression+=op.description
         }
         return expression
     }
     
-    func filterOpStack(){
+    private var filteredOpStack:[Op]{
+        var auxOpStack = opStack
         var newOpStack = [Op]()
-        while(!opStack.isEmpty){
-            let op = opStack.removeAtIndex(0)
+        while(!auxOpStack.isEmpty){
+            let op = auxOpStack.removeAtIndex(0)
             switch op{
             case .Constant(_,let constant):
                 if let previous = newOpStack.last{
@@ -72,9 +70,9 @@ class CalculatorBrain{
                     }
                 }
                 else{
-                    if let following = opStack.first {
+                    if let following = auxOpStack.first {
                         if let value = getValue(following){
-                            opStack.removeAtIndex(0)
+                            auxOpStack.removeAtIndex(0)
                             newOpStack.append(Op.Operand(constant*value))
                         }
                     }
@@ -83,9 +81,9 @@ class CalculatorBrain{
                     }
                 }
             case .UnaryPreOperation(_,let operation):
-                if let following = opStack.first {
+                if let following = auxOpStack.first {
                     if let value = getValue(following){
-                        opStack.removeAtIndex(0)
+                        auxOpStack.removeAtIndex(0)
                         newOpStack.append(Op.Operand(operation(value)))
                     }
                 }
@@ -100,7 +98,7 @@ class CalculatorBrain{
                 newOpStack.append(op)
             }
         }
-        opStack=newOpStack
+        return newOpStack
     }
     
     private func getValue(operation:Op)->Double?{
