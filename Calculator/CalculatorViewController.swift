@@ -115,17 +115,13 @@ class CalculatorViewController: UIViewController {
             return display.text?.doubleValue
         }
         set{
-            if newValue == nil {
-                display.text=""
+            if newValue == nil || newValue == 0.0 {
+                display.text="0"
             }
             else{
-                if(newValue == 0.0){
-                    display.text="0"
-                }
-                else{
-                    display.text="\(newValue!)"
-                }
+                display.text="\(newValue!)"
             }
+            
             userIsTypingNumber=false
         }
     }
