@@ -11,24 +11,19 @@ class CalculatorOperationTests: XCTestCase {
     
     func testOneOperand(){
         calculatorBrain!.pushOperand(5)
-        XCTAssertEqual(5.0, calculatorBrain!.evaluate()!)
-
-        calculatorBrain!.clearOpStack()
-
-        calculatorBrain!.pushOperand(3)
-        XCTAssertEqual(3.0, calculatorBrain!.evaluate()!)
+        calculatorBrain?.assertItEvaluatesTo(5.0)
     }
 
-    func testOneOperandWithUnaryOperation(){
+    func testOneOperandWithPosUnaryOperation(){
         calculatorBrain!.pushOperand(2)
         calculatorBrain!.pushOperation("^2")
-        XCTAssertEqual(4.0, calculatorBrain!.evaluate()!)
-        
-        calculatorBrain!.clearOpStack()
-
+        calculatorBrain?.assertItEvaluatesTo(4.0)
+    }
+    
+    func testOneOperandWithPreUnaryOperation(){
         calculatorBrain!.pushOperation("√")
         calculatorBrain!.pushOperand(4)
-        XCTAssertEqual(2.0, calculatorBrain!.evaluate()!)
+        calculatorBrain?.assertItEvaluatesTo(2.0)
     }
     
     func testTwoOperandsWithBinaryOperation(){
