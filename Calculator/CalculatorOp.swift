@@ -10,7 +10,7 @@ import Foundation
 
 enum Op: Printable{
     case Operand(Double)
-    case Constant(String,Double)
+    case Variable(String,Double?)
     case UnaryPreOperation(String,Double->Double)
     case UnaryPosOperation(String,Double->Double)
     case BinaryOperation(String,(Double,Double)->Double)
@@ -20,7 +20,7 @@ enum Op: Printable{
             switch self{
             case .Operand(let operand):
                 return "\(operand)"
-            case .Constant(let symbol,_):
+            case .Variable(let symbol,_):
                 return symbol
             case .UnaryPreOperation(let symbol,_):
                 return symbol

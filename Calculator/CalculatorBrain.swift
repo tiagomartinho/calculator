@@ -69,22 +69,22 @@ class CalculatorBrain{
         while(!auxOpStack.isEmpty){
             let op = auxOpStack.removeAtIndex(0)
             switch op{
-            case .Constant(_,let constant):
+            case .Variable(_,let constant):
                 if let previous = newOpStack.last{
                     if let value = getValue(previous){
                         newOpStack.removeLast()
-                        newOpStack.append(Op.Operand(constant*value))
+                        newOpStack.append(Op.Operand(constant!*value))
                     }
                 }
                 else{
                     if let following = auxOpStack.first {
                         if let value = getValue(following){
                             auxOpStack.removeAtIndex(0)
-                            newOpStack.append(Op.Operand(constant*value))
+                            newOpStack.append(Op.Operand(constant!*value))
                         }
                     }
                     else{
-                        newOpStack.append(Op.Operand(constant))
+                        newOpStack.append(Op.Operand(constant!))
                     }
                 }
             case .UnaryPreOperation(_,let operation):
@@ -112,7 +112,7 @@ class CalculatorBrain{
         switch operation{
         case .Operand(let operand):
             return operand
-        case .Constant(_,let constant):
+        case .Variable(_,let constant):
             return constant
         default:
             return nil

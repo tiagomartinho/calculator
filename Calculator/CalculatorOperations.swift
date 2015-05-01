@@ -26,8 +26,8 @@ class CalculatorOperations{
     }
     
     private func learnConstantOp(){
-        learnOp(Op.Constant("π",M_PI))
-        learnOp(Op.Constant("e",M_E))
+        learnOp(Op.Variable("π",M_PI))
+        learnOp(Op.Variable("e",M_E))
     }
     
     private func learnUnaryPreOp(){
