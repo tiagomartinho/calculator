@@ -32,7 +32,7 @@ class CalculatorBrain{
     
     func evaluate()->Double?{
         var result:Double?
-        if let expression=opStackToString{
+        if let expression=opStackToString(filteredOpStack){
             TryCatch.try { () -> Void in
                 var expn = NSExpression(format:expression)
                 result=Double(expn.expressionValueWithObject(nil, context: nil) as! NSNumber)
@@ -45,8 +45,8 @@ class CalculatorBrain{
         opStack = [Op]()
     }
     
-    private var opStackToString:String?{
-        var auxOpStack = filteredOpStack
+    private func opStackToString(opStack:[Op]) -> String?{
+        var auxOpStack = opStack
         var expression=""
         while(!auxOpStack.isEmpty){
             let op = auxOpStack.removeAtIndex(0)
