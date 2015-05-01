@@ -21,6 +21,7 @@ class CalculatorBrain{
     }
     
     func pushOperand(symbol:String)->Double?{
+        opStack.append(Op.Variable(symbol, variableValues[symbol]))
         return evaluate()
     }
     
@@ -70,21 +71,23 @@ class CalculatorBrain{
             let op = auxOpStack.removeAtIndex(0)
             switch op{
             case .Variable(_,let constant):
-                if let previous = newOpStack.last{
-                    if let value = getValue(previous){
-                        newOpStack.removeLast()
-                        newOpStack.append(Op.Operand(constant!*value))
-                    }
-                }
-                else{
-                    if let following = auxOpStack.first {
-                        if let value = getValue(following){
-                            auxOpStack.removeAtIndex(0)
-                            newOpStack.append(Op.Operand(constant!*value))
+                if let constantValue = constant {
+                    if let previous = newOpStack.last{
+                        if let value = getValue(previous){
+                            newOpStack.removeLast()
+                            newOpStack.append(Op.Operand(constantValue*value))
                         }
                     }
                     else{
-                        newOpStack.append(Op.Operand(constant!))
+                        if let following = auxOpStack.first {
+                            if let value = getValue(following){
+                                auxOpStack.removeAtIndex(0)
+                                newOpStack.append(Op.Operand(constantValue*value))
+                            }
+                        }
+                        else{
+                            newOpStack.append(Op.Operand(constantValue))
+                        }
                     }
                 }
             case .UnaryPreOperation(_,let operation):

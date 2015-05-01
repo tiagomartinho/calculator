@@ -14,9 +14,24 @@ class CalculatorAPITests: XCTestCase {
         XCTAssertNil(calculatorBrain!.evaluate())
     }
     
-    func testPushVariableWithValue() {
+    func testPushVariableAndAfterValue() {
         calculatorBrain?.pushOperand("x")
         calculatorBrain?.variableValues["x"] = 35.0
-        XCTAssertEqual(35.0, calculatorBrain!.evaluate()!)
+        assertEvaluatesTo(35.0)
+    }
+    
+    func testPushValueAndAfterVariable() {
+        calculatorBrain?.variableValues["x"] = 35.0
+        calculatorBrain?.pushOperand("x")
+        assertEvaluatesTo(35.0)
+    }
+    
+    func assertEvaluatesTo(expectedResult:Double){
+        if let result = calculatorBrain?.evaluate() {
+            XCTAssertEqual(expectedResult, result)
+        }
+        else {
+            XCTAssertTrue(false)
+        }
     }
 }
