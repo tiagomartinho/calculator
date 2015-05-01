@@ -8,6 +8,8 @@ class CalculatorBrain{
     
     var variableValues = [String:Double]()
     
+    var description:String?
+
     init(){
         knownOps = CalculatorOperations().learnOperations()
     }

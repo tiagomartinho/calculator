@@ -15,6 +15,7 @@
 		5929553c1d67fe9712647984 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAC345A1AC5DE0C00374FAB /* AppDelegate.swift */; };
 		EA31439B1AF3AEA200EFE10C /* CalculatorAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA31439A1AF3AEA200EFE10C /* CalculatorAPITests.swift */; };
 		EA31439F1AF3CB3800EFE10C /* TestsUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA31439E1AF3CB3800EFE10C /* TestsUtilities.swift */; };
+		EA3143A11AF3D20200EFE10C /* CalculatorDescriptionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3143A01AF3D20200EFE10C /* CalculatorDescriptionTests.swift */; };
 		EA5D8E931ACB2A87004DA4C9 /* TryCatch.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5D8E921ACB2A87004DA4C9 /* TryCatch.m */; };
 		EA5D8E941ACB3081004DA4C9 /* TryCatch.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5D8E921ACB2A87004DA4C9 /* TryCatch.m */; };
 		EA5D8E961ACB34D4004DA4C9 /* CalculatorConstantsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5D8E951ACB34D4004DA4C9 /* CalculatorConstantsTests.swift */; };
@@ -59,6 +60,7 @@
 		EA3143991AF3AC2300EFE10C /* Calculator-cal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calculator-cal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA31439A1AF3AEA200EFE10C /* CalculatorAPITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorAPITests.swift; sourceTree = "<group>"; };
 		EA31439E1AF3CB3800EFE10C /* TestsUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestsUtilities.swift; sourceTree = "<group>"; };
+		EA3143A01AF3D20200EFE10C /* CalculatorDescriptionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorDescriptionTests.swift; sourceTree = "<group>"; };
 		EA5D8E8F1ACB29D5004DA4C9 /* TryCatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TryCatch.h; sourceTree = "<group>"; };
 		EA5D8E911ACB2A87004DA4C9 /* Calculator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Calculator-Bridging-Header.h"; sourceTree = "<group>"; };
 		EA5D8E921ACB2A87004DA4C9 /* TryCatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TryCatch.m; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				EA5D8E951ACB34D4004DA4C9 /* CalculatorConstantsTests.swift */,
 				EAAC34801AC5DF4B00374FAB /* CalculatorErrorsTests.swift */,
 				EA31439A1AF3AEA200EFE10C /* CalculatorAPITests.swift */,
+				EA3143A01AF3D20200EFE10C /* CalculatorDescriptionTests.swift */,
 				EAAC346E1AC5DE0C00374FAB /* Supporting Files */,
 			);
 			path = CalculatorTests;
@@ -360,6 +363,7 @@
 				EAAC34811AC5DF4B00374FAB /* CalculatorErrorsTests.swift in Sources */,
 				EA31439B1AF3AEA200EFE10C /* CalculatorAPITests.swift in Sources */,
 				EAAC34841AC5E0AC00374FAB /* CalculatorOperations.swift in Sources */,
+				EA3143A11AF3D20200EFE10C /* CalculatorDescriptionTests.swift in Sources */,
 				EAAC34831AC5E0A900374FAB /* CalculatorOp.swift in Sources */,
 				EA31439F1AF3CB3800EFE10C /* TestsUtilities.swift in Sources */,
 				EA5D8E961ACB34D4004DA4C9 /* CalculatorConstantsTests.swift in Sources */,
