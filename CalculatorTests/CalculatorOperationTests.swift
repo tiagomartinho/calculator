@@ -28,25 +28,9 @@ class CalculatorOperationTests: XCTestCase {
     
     func testTwoOperandsWithBinaryOperation(){
         calculatorBrain!.pushOperand(1)
-        calculatorBrain!.pushOperation("+")
+        calculatorBrain!.pushOperation("-")
         calculatorBrain!.pushOperand(2)
-        XCTAssertEqual(3.0, calculatorBrain!.evaluate()!)
-        
-        calculatorBrain!.clearOpStack()
-
-        calculatorBrain!.pushOperand(3)
-        calculatorBrain!.pushOperation("*")
-        calculatorBrain!.pushOperand(4)
-        XCTAssertEqual(12.0, calculatorBrain!.evaluate()!)
-    }
-    
-    func testSumOfTwoOperandsPlusMultiplication(){
-        calculatorBrain!.pushOperand(1)
-        calculatorBrain!.pushOperation("+")
-        calculatorBrain!.pushOperand(2)
-        calculatorBrain!.pushOperation("*")
-        calculatorBrain!.pushOperand(4)
-        XCTAssertEqual(9.0, calculatorBrain!.evaluate()!)
+        calculatorBrain?.assertItEvaluatesTo(-1.0)
     }
     
     func testMultiplicationOfTwoOperandsPlusSum(){
@@ -55,7 +39,7 @@ class CalculatorOperationTests: XCTestCase {
         calculatorBrain!.pushOperand(2)
         calculatorBrain!.pushOperation("+")
         calculatorBrain!.pushOperand(4)
-        XCTAssertEqual(6.0, calculatorBrain!.evaluate()!)
+        calculatorBrain?.assertItEvaluatesTo(6.0)
     }
     
     func testPreUnaryFollowByBinaryOperation(){
