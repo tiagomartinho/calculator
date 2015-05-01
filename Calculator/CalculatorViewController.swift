@@ -59,12 +59,8 @@ class CalculatorViewController: UIViewController {
     // MARK: Enter Method
     
     @IBAction func enter() {
-        if(userIsTypingNumber){
-            userIsTypingNumber=false
-            if let value = displayValue {
-                brain.pushOperand(value)
-            }
-        }
+        pushOperand()
+
         if let result=brain.evaluate(){
             displayValue=result
             historyValue = (historyValue ?? "") + "="
