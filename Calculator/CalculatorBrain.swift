@@ -37,7 +37,7 @@ class CalculatorBrain{
         if let expression=opStackToString(filteredOpStack){
             TryCatch.try { () -> Void in
                 var expn = NSExpression(format:expression)
-                result=Double(expn.expressionValueWithObject(nil, context: nil) as! NSNumber)
+                result=expn.expressionValueWithObject(nil, context: nil) as? Double
             };
         }
         return result
