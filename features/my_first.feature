@@ -75,7 +75,7 @@ Scenario: Testing all assignemnt 1 requirements
   And I click the "4" button
   And I click the "2" button
   And I click the "Enter" button
-  Then I read "-0.916521547"
+  Then I read "-0.916522"
   Then I read "sin42"
 
   Then I click "C"
@@ -84,7 +84,7 @@ Scenario: Testing all assignemnt 1 requirements
   And I click the "4" button
   And I click the "2" button
   And I click the "Enter" button
-  Then I read "-0.399985314"
+  Then I read "-0.399985"
   Then I read "cos42"
 
   Then I click "C"
@@ -92,7 +92,7 @@ Scenario: Testing all assignemnt 1 requirements
   When I click the "π" button
   And I click the "3" button
   And I click the "Enter" button
-  Then I read "9.424777960"
+  Then I read "9.42478"
   Then I read "π3="
  
   Then I click "C"
@@ -100,7 +100,7 @@ Scenario: Testing all assignemnt 1 requirements
   When I click the "3" button
   And I click the "π" button
   And I click the "Enter" button
-  Then I read "9.424777960"
+  Then I read "9.42478"
   Then I read "3π="
 
 

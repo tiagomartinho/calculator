@@ -19,11 +19,11 @@ class CalculatorErrorsTests: XCTestCase {
         XCTAssertNil(calculatorBrain?.evaluate())
     }
     
-    func testTwoOperands(){
-        calculatorBrain!.pushOperand(8)
-        calculatorBrain!.pushOperand(7)
-        XCTAssertNil(calculatorBrain?.evaluate())
-    }
+//    func testTwoOperands(){
+//        calculatorBrain!.pushOperand(8)
+//        calculatorBrain!.pushOperand(7)
+//        XCTAssertNil(calculatorBrain?.evaluate())
+//    }
     
     func testOneOperandAndBinaryOperation(){
         calculatorBrain!.pushOperand(8)
