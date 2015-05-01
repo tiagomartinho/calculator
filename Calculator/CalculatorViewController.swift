@@ -63,15 +63,19 @@ class CalculatorViewController: UIViewController {
 
         if let result=brain.evaluate(){
             displayValue=result
-            if count(historyValue ?? "")>1 {
-                historyValue = (historyValue ?? "") + "="
-            }
+            addEqualSign()
         }
         else{
             display.text = "Error"
         }
         
         brain.clearOpStack()
+    }
+    
+    func addEqualSign(){
+        if count(historyValue ?? "")>1 {
+            historyValue = (historyValue ?? "") + "="
+        }
     }
     
     // MARK: Clear Methods
