@@ -21,11 +21,12 @@ class CalculatorBrain{
     }
     
     func pushOperand(symbol:String)->Double?{
-        return 0.0
+        return evaluate()
     }
     
-    func pushOperand(operand:Double){
+    func pushOperand(operand:Double)->Double?{
         opStack.append(Op.Operand(operand))
+        return evaluate()
     }
     
     func pushOperation(symbol:String){

@@ -38,6 +38,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		EA31439C1AF3C0B900EFE10C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EAAC344D1AC5DE0C00374FAB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = bd73eef4547bb700432b23e9;
+			remoteInfo = "Calculator-cal";
+		};
 		EAAC346B1AC5DE0C00374FAB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EAAC344D1AC5DE0C00374FAB /* Project object */;
@@ -223,6 +230,7 @@
 			);
 			dependencies = (
 				EAAC346C1AC5DE0C00374FAB /* PBXTargetDependency */,
+				EA31439D1AF3C0B900EFE10C /* PBXTargetDependency */,
 			);
 			name = CalculatorTests;
 			productName = CalculatorTests;
@@ -260,7 +268,7 @@
 					};
 					EAAC34691AC5DE0C00374FAB = {
 						CreatedOnToolsVersion = 6.2;
-						TestTargetID = EAAC34541AC5DE0C00374FAB;
+						TestTargetID = bd73eef4547bb700432b23e9;
 					};
 				};
 			};
@@ -359,6 +367,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		EA31439D1AF3C0B900EFE10C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = bd73eef4547bb700432b23e9 /* Calculator-cal */;
+			targetProxy = EA31439C1AF3C0B900EFE10C /* PBXContainerItemProxy */;
+		};
 		EAAC346C1AC5DE0C00374FAB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = EAAC34541AC5DE0C00374FAB /* Calculator */;
@@ -553,7 +566,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Calculator/Calculator-Bridging-Header.h";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Calculator.app/Calculator";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Calculator-cal.app/Calculator-cal";
 			};
 			name = Debug;
 		};
@@ -569,7 +582,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Calculator/Calculator-Bridging-Header.h";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Calculator.app/Calculator";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Calculator-cal.app/Calculator-cal";
 			};
 			name = Release;
 		};
