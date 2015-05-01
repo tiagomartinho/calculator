@@ -14,7 +14,7 @@ class CalculatorBrain{
     
     private var knownOps = [String:Op]()
     
-    var variableValues = [String,Double]()
+    var variableValues = [String:Double]()
     
     init(){
         knownOps = CalculatorOperations().learnOperations()
