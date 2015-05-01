@@ -50,9 +50,23 @@ class CalculatorBrain{
     private func opStackToString(opStack:[Op]) -> String?{
         var auxOpStack = opStack
         var expression=""
+        var nextShouldCloseParathenses=false
         while(!auxOpStack.isEmpty){
             let op = auxOpStack.removeAtIndex(0)
-            expression+=op.description
+            switch op{
+            case .UnaryPreOperation:
+                expression+=op.description + "("
+                nextShouldCloseParathenses=true
+            default:
+                if nextShouldCloseParathenses {
+                    expression+=op.description + ")"
+                    nextShouldCloseParathenses=false
+                }
+                else{
+                    expression+=op.description
+                }
+            }
+            
         }
         return expression
     }
