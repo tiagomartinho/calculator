@@ -14,8 +14,14 @@ class CalculatorBrain{
     
     private var knownOps = [String:Op]()
     
+    var variableValues = [String,Double]()
+    
     init(){
         knownOps = CalculatorOperations().learnOperations()
+    }
+    
+    func pushOperand(symbol:String)->Double?{
+        return 0.0
     }
     
     func pushOperand(operand:Double){
