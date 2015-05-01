@@ -26,6 +26,13 @@ class CalculatorAPITests: XCTestCase {
         assertEvaluatesTo(35.0)
     }
     
+    func testOneVariableWithUnaryOperation(){
+        calculatorBrain?.variableValues["x"] = 35.0
+        calculatorBrain?.pushOperand("x")
+        calculatorBrain?.pushOperation("^2")
+        assertEvaluatesTo(1225.0)
+    }
+    
     func assertEvaluatesTo(expectedResult:Double){
         if let result = calculatorBrain?.evaluate() {
             XCTAssertEqual(expectedResult, result)
