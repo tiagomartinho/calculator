@@ -37,16 +37,13 @@ class CalculatorBrain{
     }
     
     func evaluate()->Double?{
-        
         var result:Double?
-        
-        let expression=opStackToString
-
-        TryCatch.try { () -> Void in
-            var expn = NSExpression(format:expression)
-            result=Double(expn.expressionValueWithObject(nil, context: nil) as! NSNumber)
-        };
-        
+        if let expression=opStackToString{
+            TryCatch.try { () -> Void in
+                var expn = NSExpression(format:expression)
+                result=Double(expn.expressionValueWithObject(nil, context: nil) as! NSNumber)
+            };
+        }
         return result
     }
     
@@ -54,7 +51,7 @@ class CalculatorBrain{
         opStack = [Op]()
     }
     
-    private var opStackToString:String{
+    private var opStackToString:String?{
         var auxOpStack = filteredOpStack
         var expression=""
         while(!auxOpStack.isEmpty){
@@ -70,24 +67,32 @@ class CalculatorBrain{
         while(!auxOpStack.isEmpty){
             let op = auxOpStack.removeAtIndex(0)
             switch op{
-            case .Variable(_,let constant):
+            case .Variable(let symbol,let constant):
+                let finalConstant:Double
                 if let constantValue = constant {
-                    if let previous = newOpStack.last{
-                        if let value = getValue(previous){
-                            newOpStack.removeLast()
-                            newOpStack.append(Op.Operand(constantValue*value))
+                    finalConstant = constantValue
+                }
+                else if let constantValue = variableValues[symbol] {
+                    finalConstant = constantValue
+                } else{
+                    break
+                }
+                
+                if let previous = newOpStack.last{
+                    if let value = getValue(previous){
+                        newOpStack.removeLast()
+                        newOpStack.append(Op.Operand(finalConstant*value))
+                    }
+                }
+                else{
+                    if let following = auxOpStack.first {
+                        if let value = getValue(following){
+                            auxOpStack.removeAtIndex(0)
+                            newOpStack.append(Op.Operand(finalConstant*value))
                         }
                     }
                     else{
-                        if let following = auxOpStack.first {
-                            if let value = getValue(following){
-                                auxOpStack.removeAtIndex(0)
-                                newOpStack.append(Op.Operand(constantValue*value))
-                            }
-                        }
-                        else{
-                            newOpStack.append(Op.Operand(constantValue))
-                        }
+                        newOpStack.append(Op.Operand(finalConstant))
                     }
                 }
             case .UnaryPreOperation(_,let operation):
