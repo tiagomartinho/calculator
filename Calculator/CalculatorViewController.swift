@@ -35,15 +35,19 @@ class CalculatorViewController: UIViewController {
     }
     
     @IBAction func posOperation(sender: UIButton) {
-        if let value = displayValue {
-            brain.pushOperand(value)
-            displayValue=0
-            pushOperation(sender)
-        }
+        pushOperand()
+        pushOperation(sender)
     }
     
     @IBAction func preOperation(sender: UIButton) {
         pushOperation(sender)
+    }
+    
+    func pushOperand(){
+        if let value = displayValue {
+            brain.pushOperand(value)
+            displayValue=0
+        }
     }
     
     func pushOperation(sender: UIButton){
