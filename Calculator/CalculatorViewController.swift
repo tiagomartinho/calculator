@@ -131,14 +131,11 @@ class CalculatorViewController: UIViewController {
             return history.text
         }
         set{
-            clearHistoryIfNeeded()
-            history.text = (newValue ?? "")
-        }
-    }
-    
-    func clearHistoryIfNeeded(){
-        if history.text?.rangeOfString("=") != nil || history.text==nil{
-            history.text = ""
+            if history.text?.rangeOfString("=") != nil || history.text==nil{
+                history.text = ""
+            } else{
+                history.text = (newValue ?? "")
+            }
         }
     }
 }
