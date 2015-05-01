@@ -87,7 +87,7 @@ Scenario: Testing all assignemnt 1 requirements
   Then I have "3.0"
   Then I read "1+2="
   Then I click "C"
-  Then I have "0.0"
+  Then I have "0"
   Then I don't read "1+2="
 
   Then I click "C"
@@ -100,7 +100,7 @@ Scenario: Testing all assignemnt 1 requirements
   Then I have "12"
   Then I click the "Backspace" button
   Then I click the "Backspace" button
-  Then I have "0.0"
+  Then I have "0"
   Then I don't read "12"
   Then I don't read "123"
 

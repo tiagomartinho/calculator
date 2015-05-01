@@ -35,31 +35,10 @@ class CalculatorViewController: UIViewController {
     }
     
     @IBAction func appendFloatingPoint() {
-        if !userInMiddleOfTypingNumber {
-            display.text = "0."
+        if display.text!.rangeOfString(".")==nil{
+            display.text=display.text!+"."
+            historyValue += "."
             userInMiddleOfTypingNumber=true
-            
-            if clearHistory {
-                historyValue = "."
-                clearHistory=false
-            }
-            else {
-                historyValue += "."
-            }
-        }
-        else {
-            if display.text!.rangeOfString(".")==nil{
-                display.text=display.text!+"."
-                userInMiddleOfTypingNumber=true
-                
-                if clearHistory {
-                    historyValue = "."
-                    clearHistory=false
-                }
-                else {
-                    historyValue += "."
-                }
-            }
         }
     }
     
@@ -67,7 +46,7 @@ class CalculatorViewController: UIViewController {
         if var displayString = display.text, var historyString = history.text{
             if(count(displayString)==1)
             {
-                displayString="0.0"
+                displayValue=0
                 historyString=""
                 userInMiddleOfTypingNumber=false
             }
@@ -146,7 +125,12 @@ class CalculatorViewController: UIViewController {
                 display.text=""
             }
             else{
+                if(newValue == 0.0){
+                    display.text="0"
+                }
+                else{
                 display.text="\(newValue!)"
+                }
             }
             userInMiddleOfTypingNumber=false
         }
