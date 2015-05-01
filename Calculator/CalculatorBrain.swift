@@ -83,12 +83,18 @@ class CalculatorBrain{
                         newOpStack.removeLast()
                         newOpStack.append(Op.Operand(finalConstant*value))
                     }
+                    else{
+                        newOpStack.append(Op.Operand(finalConstant))
+                    }
                 }
                 else{
                     if let following = auxOpStack.first {
                         if let value = getValue(following){
                             auxOpStack.removeAtIndex(0)
                             newOpStack.append(Op.Operand(finalConstant*value))
+                        }
+                        else{
+                            newOpStack.append(Op.Operand(finalConstant))
                         }
                     }
                     else{

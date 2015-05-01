@@ -26,10 +26,10 @@ class CalculatorAPITests: XCTestCase {
         calculatorBrain?.assertItEvaluatesTo(35.0)
     }
     
-//    func testOneVariableWithUnaryOperation(){
-//        calculatorBrain?.variableValues["x"] = 35.0
-//        calculatorBrain?.pushOperand("x")
-//        calculatorBrain?.pushOperation("^2")
-//        calculatorBrain?.assertItEvaluatesTo(1225.0)
-//    }
+    func testOneVariableWithUnaryOperation(){
+        calculatorBrain?.variableValues["x"] = 35.0
+        calculatorBrain?.pushOperand("x")
+        calculatorBrain?.pushOperation("^2")
+        calculatorBrain?.assertItEvaluatesTo(1225.0)
+    }
 }

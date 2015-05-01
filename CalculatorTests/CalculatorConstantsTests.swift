@@ -14,11 +14,11 @@ class CalculatorConstantsTests: XCTestCase {
         calculatorBrain?.assertItEvaluatesTo(M_PI)
     }
     
-//    func testOneConstantWithUnaryOperation(){
-//        calculatorBrain?.pushOperation("π")
-//        calculatorBrain?.pushOperation("^2")
-//        XCTAssertEqualWithAccuracy(M_PI*M_PI, calculatorBrain?.evaluate()?, 0.001)
-//    }
+    func testOneConstantWithUnaryOperation(){
+        calculatorBrain?.pushOperation("π")
+        calculatorBrain?.pushOperation("^2")
+        calculatorBrain?.assertItEvaluatesTo(M_PI*M_PI)
+    }
     
     func testTwoConstant(){
         calculatorBrain?.pushOperation("e")
@@ -38,13 +38,21 @@ class CalculatorConstantsTests: XCTestCase {
         calculatorBrain?.assertItEvaluatesTo(M_E*5)
     }
 
-//    func testOneConstantWithOneOperandAddConstant(){
-//        calculatorBrain?.pushOperand(3)
-//        calculatorBrain?.pushOperation("π")
-//        calculatorBrain?.pushOperation("+")
-//        calculatorBrain?.pushOperation("e")
-//        XCTAssertEqualWithAccuracy(3*M_PI+M_E, calculatorBrain?.evaluate()?, 0.001)
-//    }
+    func testOneConstantWithOneOperandAddConstant(){
+        calculatorBrain?.pushOperand(3)
+        calculatorBrain?.pushOperation("π")
+        calculatorBrain?.pushOperation("+")
+        calculatorBrain?.pushOperation("e")
+        calculatorBrain?.assertItEvaluatesTo(3*M_PI+M_E)
+    }
+    
+    func testOneOperandAddConstantWithOneOperand(){
+        calculatorBrain?.pushOperand(3)
+        calculatorBrain?.pushOperation("+")
+        calculatorBrain?.pushOperand(5)
+        calculatorBrain?.pushOperation("e")
+        calculatorBrain?.assertItEvaluatesTo(3+5*M_E)
+    }
     
     func testOneConstantWithOneOperandAddOneOperandAndOneConstant(){
         calculatorBrain?.pushOperand(3)
