@@ -2,6 +2,8 @@ Feature: Assignment 1
 
 Scenario: Testing all assignemnt 1 requirements 
 #Scenario: Adding two numbers 
+  When I click the "Enter" button
+  Then I don't read "="
   When I click the "1" button
   And I click the "+" button
   And I click the "2" button
@@ -10,6 +12,8 @@ Scenario: Testing all assignemnt 1 requirements
   Then I read "1+2="
   And I click the "Enter" button
   Then I don't read "1+2=="
+  And I click the "Enter" button
+  Then I don't read "3.0"
 
   Then I click "C"
 #Scenario: Insert floating point number of type x.y 

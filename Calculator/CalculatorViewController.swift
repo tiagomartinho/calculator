@@ -63,12 +63,15 @@ class CalculatorViewController: UIViewController {
 
         if let result=brain.evaluate(){
             displayValue=result
-            historyValue = (historyValue ?? "") + "="
+            if count(historyValue ?? "")>1 {
+                historyValue = (historyValue ?? "") + "="
+            }
         }
         else{
             display.text = "Error"
-            brain.clearOpStack()
         }
+        
+        brain.clearOpStack()
     }
     
     // MARK: Clear Methods
@@ -133,6 +136,7 @@ class CalculatorViewController: UIViewController {
         set{
             if history.text?.rangeOfString("=") != nil{
                 history.text = ""
+                displayValue = 0
             } else{
                 history.text = (newValue ?? "")
             }
