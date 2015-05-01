@@ -8,7 +8,9 @@ class CalculatorBrain{
     
     var variableValues = [String:Double]()
     
-    var description:String?
+    var description:String? {
+        return opStackToString(opStack)
+    }
 
     init(){
         knownOps = CalculatorOperations().learnOperations()
